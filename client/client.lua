@@ -15,7 +15,7 @@ Citizen.CreateThread(function()
         DrawMarker(24, pos[k].x, pos[k].y, pos[k].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 255, 255, 255, 255, 0, 0, 1, 0, nil, nil, nil)
 
         if dst < 1 then
-          RageUI.Text({ message="Appuyez sur ~y~[~g~E~y~] ~w~pour fabriquer des armes.", time_display = 1 })
+          ESX.ShowHelpNotification("Appuyez sur ~INPUT_CONTEXT~ pour fabriquer des armes")
 
           if IsControlJustPressed(1, 38) then
             CraftWeaponBM()
@@ -26,3 +26,7 @@ Citizen.CreateThread(function()
     Citizen.Wait(wait)
   end
 end)
+
+function CraftWeaponBM()
+
+end
