@@ -14,6 +14,7 @@ client_scripts {
     "libs/menu/panels/*.lua",
     "libs/menu/panels/*.lua",
     "libs/menu/windows/*.lua",
+
 }
 
 client_scripts {
