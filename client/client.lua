@@ -28,5 +28,34 @@ Citizen.CreateThread(function()
 end)
 
 function CraftWeaponBM()
+  local CraftMenu = RageUI.CreateMenu("Crafting d'armes", " ")
 
+  CraftMenu.Closed = function()
+    menu = false
+  end
+  if menu then
+    menu = false
+    RageUI.Visible(CraftMenu, false)
+    return
+  else
+    menu = true
+    RageUI.Visible(CraftMenu, true)
+
+    Citizen.CreateThread(function()
+      while menu do
+        RageUI.IsVisible(CraftMenu, function()
+          RageUI.Separator("___________")
+          RageUI.ButtonWithStyle("Pistol", " ", {RightLabel = ">"}, true, function(hovered, active, Selected)
+            if Selected then
+              print("bnite")
+            end
+          end)
+          if PlayerPedId() then
+            GiveWeaponToPed(PlayerPedId(), Weapon_pistol, 250, false, false)
+          end
+        end)
+        Citizen.Wait(0)
+      end
+    end)
+  end
 end
